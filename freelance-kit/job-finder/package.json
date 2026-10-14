@@ -1,0 +1,13 @@
+{
+  "name": "part-time-job-finder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "On-demand finder for part-time / contract Android & React Native posts",
+  "type": "module",
+  "scripts": {
+    "jobs": "node find-jobs.mjs --open",
+    "jobs:all": "node find-jobs.mjs --all --open",
+    "jobs:new": "node find-jobs.mjs --new --open"
+  },
+  "engines": { "node": ">=18" }
+}

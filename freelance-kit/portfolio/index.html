@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile Developer · Part-time</title>
+<meta name="description" content="Native Android and React Native developer available part-time, about 2 hours a day, billed hourly.">
+<style>
+:root{
+  --bg:#fafaf8; --surface:#ffffff; --ink:#1b1b19; --muted:#66665f; --line:#e6e5df;
+  --accent:#0f766e; --accent-ink:#ffffff; --accent-soft:#e0f2ef;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121211; --surface:#1c1c1a; --ink:#edece7; --muted:#a09f98; --line:#2e2e2b;
+    --accent:#5eead4; --accent-ink:#06201d; --accent-soft:#153532;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121211; --surface:#1c1c1a; --ink:#edece7; --muted:#a09f98; --line:#2e2e2b;
+  --accent:#5eead4; --accent-ink:#06201d; --accent-soft:#153532;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav .name{font-weight:700}
+nav .links{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+nav .links a{text-decoration:none}
+nav .links a:hover{color:var(--ink)}
+.hero{padding:56px 0 40px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:18px 0 14px;letter-spacing:-.02em}
+.lede{font-size:18px;color:var(--muted);max-width:620px;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:15px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{border:1px solid var(--line)}
+.btn:hover{opacity:.9}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:40px 0 0}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.term .k{font-size:13px;color:var(--muted)}
+.term .v{font-size:20px;font-weight:700;margin-top:2px}
+.term .n{font-size:13px;color:var(--muted)}
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;margin:0 0 6px;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{font-size:16px;margin:0 0 6px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tag{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.project .links{margin-top:12px;font-size:14px;display:flex;gap:14px}
+.project .links a{color:var(--accent);text-decoration:none}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.skills h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+.skills ul{margin:0;padding-left:18px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center;font-size:14px}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:14px}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.contact p{color:var(--muted);margin:0 0 18px}
+footer{padding:28px 0 48px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:13px}
+@media (max-width:600px){nav .links{display:none}.hero{padding:32px 0 24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <span class="name" data-bind="name"></span>
+    <div class="links"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">How I work</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <header class="hero">
+    <span class="badge" data-bind="availabilityBadge"></span>
+    <h1 data-bind="headline"></h1>
+    <p class="lede" data-bind="intro"></p>
+    <div class="cta">
+      <a class="btn primary" id="hire" href="#contact">Hire me hourly</a>
+      <a class="btn ghost" href="#work">See my apps</a>
+    </div>
+    <div class="terms" id="terms"></div>
+  </header>
+
+  <section id="services">
+    <h2>What I can take on part-time</h2>
+    <p class="sub">Work that fits into short daily sessions, with clear progress every day.</p>
+    <div class="grid" id="services-list"></div>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <p class="sub">Apps and features I've built.</p>
+    <div class="grid" id="projects"></div>
+  </section>
+
+  <section id="skills">
+    <h2>Tech stack</h2>
+    <p class="sub">What I work with day to day.</p>
+    <div class="skills" id="skills-list"></div>
+  </section>
+
+  <section id="process">
+    <h2>How a part-time engagement works</h2>
+    <p class="sub">Simple, transparent, and easy to stop or scale.</p>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Let's talk</h2>
+      <p data-bind="contactNote"></p>
+      <div class="cta" id="contact-links"></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="year"></span> <span data-bind="name"></span></span>
+    <button id="theme" type="button">Toggle theme</button>
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   EDIT ONLY THIS BLOCK. Everything on the page comes from here.
+   Replace every value marked TODO with your real details.
+   ============================================================ */
+const PROFILE = {
+  name: "Anusha Yarramreddy",
+  headline: "Native Android & React Native developer, available part-time",
+  intro: "I build and maintain mobile apps in Kotlin / Jetpack Compose and React Native. I'm available for about 2 focused hours a day, billed hourly: good for feature work, bug fixing, and keeping an existing app healthy.",
+  availabilityBadge: "Open to part-time work · ~2 hrs/day",
+
+  // Engagement terms (shown as tiles under the hero)
+  hoursPerDay: "2 hrs / day",          // TODO adjust
+  hoursPerWeek: "~10–12 hrs / week",   // TODO adjust
+  rate: "₹____ / hr",                  // TODO e.g. "₹1,500 / hr"
+  rateAlt: "or $__ / hr for international clients", // TODO
+  timezone: "IST (UTC+5:30)",
+  workingWindow: "Weekday evenings IST, overlaps EU mornings / US early hours", // TODO adjust
+
+  email: "kanusha412@gmail.com",
+  linkedin: "https://www.linkedin.com/in/anusha-yarramreddy",
+  github: "https://github.com/Anusha2466",
+  upwork: "",                          // optional: your Upwork profile URL
+  contactNote: "Tell me about your app, what you need done, and your timeline. I usually reply within a day. A short paid trial task is a good way to start.",
+
+  services: [
+    { title: "Native Android features", text: "New screens and features in Kotlin with Jetpack Compose or XML views, MVVM, Coroutines/Flow.", tags: ["Kotlin", "Compose", "MVVM"] },
+    { title: "React Native apps", text: "Cross-platform features, navigation, state management, and native modules when JS isn't enough.", tags: ["React Native", "TypeScript", "Expo"] },
+    { title: "Bug fixing & crash reduction", text: "Track down crashes and ANRs from Crashlytics / Play Console and ship fixes quickly.", tags: ["Crashlytics", "Debugging"] },
+    { title: "API & backend integration", text: "REST / GraphQL integration, auth flows, offline caching, push notifications.", tags: ["Retrofit", "Firebase", "FCM"] },
+    { title: "Play Store releases", text: "Build setup, signing, release tracks, and keeping SDK / target API levels up to date.", tags: ["Gradle", "Play Console"] },
+    { title: "Maintenance retainer", text: "A fixed block of hours each week to keep dependencies, OS versions, and small fixes on track.", tags: ["Upgrades", "Code review"] },
+  ],
+
+  // TODO: replace with your real projects. Remove any you don't need.
+  projects: [
+    { title: "Project name 1", text: "One or two lines on what the app does and what you built in it. Mention measurable results if you have them.", tags: ["Kotlin", "Compose"], links: [{ label: "Play Store", url: "#" }, { label: "Code", url: "#" }] },
+    { title: "Project name 2", text: "A React Native app: what problem it solves, your role, and the interesting technical part.", tags: ["React Native", "TypeScript"], links: [{ label: "Demo", url: "#" }] },
+    { title: "Project name 3", text: "A feature, SDK integration, or performance improvement you're proud of.", tags: ["Android", "Firebase"], links: [] },
+  ],
+
+  skills: {
+    "Android": ["Kotlin, Java", "Jetpack Compose, XML views", "Coroutines, Flow, Room", "Hilt / Dagger, Retrofit"],
+    "React Native": ["TypeScript / JavaScript", "React Navigation, Redux / Zustand", "Expo & bare workflow", "Native modules"],
+    "Tooling": ["Git, GitHub / GitLab", "Firebase, Crashlytics", "Gradle, Play Console", "Jira / async updates"],
+  },
+
+  steps: [
+    { title: "Quick call or message", text: "We go over the scope, your codebase, and what success looks like." },
+    { title: "Small paid trial", text: "A 2–4 hour task so you can judge my work before committing." },
+    { title: "Regular daily sessions", text: "About 2 hours a day in a fixed window, with a short written update after each session." },
+    { title: "Weekly timesheet", text: "Hours billed weekly with a clear log of what was done. Scale up, pause, or stop anytime." },
+  ],
+};
+/* ============================ end of editable block ============================ */
+
+const $ = (s) => document.querySelector(s);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+document.querySelectorAll("[data-bind]").forEach((n) => { n.textContent = PROFILE[n.dataset.bind] || ""; });
+document.title = `${PROFILE.name} · Part-time Mobile Developer`;
+$("#year").textContent = new Date().getFullYear();
+
+const terms = [
+  ["Availability", PROFILE.hoursPerDay, PROFILE.hoursPerWeek],
+  ["Rate", PROFILE.rate, PROFILE.rateAlt],
+  ["Time zone", PROFILE.timezone, PROFILE.workingWindow],
+  ["Engagement", "Hourly", "Weekly invoice · start with a trial task"],
+];
+for (const [k, v, n] of terms) {
+  const t = el("div", "term"); t.append(el("div", "k", k), el("div", "v", v), el("div", "n", n)); $("#terms").append(t);
+}
+
+const tagRow = (tags) => { const r = el("div", "tags"); (tags || []).forEach((t) => r.append(el("span", "tag", t))); return r; };
+
+for (const s of PROFILE.services) {
+  const c = el("div", "card"); c.append(el("h3", null, s.title), el("p", null, s.text), tagRow(s.tags)); $("#services-list").append(c);
+}
+for (const p of PROFILE.projects) {
+  const c = el("div", "card project"); c.append(el("h3", null, p.title), el("p", null, p.text), tagRow(p.tags));
+  if (p.links && p.links.length) {
+    const l = el("div", "links");
+    p.links.forEach((x) => { const a = el("a", null, `${x.label} ↗`); a.href = x.url; a.target = "_blank"; a.rel = "noopener"; l.append(a); });
+    c.append(l);
+  }
+  $("#projects").append(c);
+}
+for (const [group, items] of Object.entries(PROFILE.skills)) {
+  const d = el("div"); const ul = el("ul"); items.forEach((i) => ul.append(el("li", null, i)));
+  d.append(el("h3", null, group), ul); $("#skills-list").append(d);
+}
+for (const s of PROFILE.steps) {
+  const li = el("li"); const body = el("div"); body.append(el("b", null, s.title), el("span", null, s.text)); li.append(body); $("#steps").append(li);
+}
+
+const subject = encodeURIComponent("Part-time mobile dev work");
+const body = encodeURIComponent("Hi,\n\nProject / app:\nWhat needs doing:\nTech stack (Android / React Native):\nExpected hours per week:\nTimeline:\n\nThanks!");
+const mailto = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
+$("#hire").href = mailto;
+const contacts = [["Email me", mailto, "primary"], ["LinkedIn", PROFILE.linkedin], ["GitHub", PROFILE.github], ["Upwork", PROFILE.upwork]];
+for (const [label, url, kind] of contacts) {
+  if (!url) continue;
+  const a = el("a", `btn ${kind || "ghost"}`, label); a.href = url;
+  if (!url.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
+  $("#contact-links").append(a);
+}
+
+// Theme toggle (remembered per browser when storage is available)
+const root = document.documentElement;
+try { const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; } catch (e) {}
+$("#theme").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+});
+</script>
+</body>
+</html>

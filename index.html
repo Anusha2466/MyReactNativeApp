@@ -3,9 +3,602 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#f6f5f0">
+    <meta name="description" content="Part-time mobile development support for Android and React Native. Available for two hours a day at ₹250 per hour.">
+    <title>Mobile Developer | Android &amp; React Native</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --paper: #f6f5f0;
+            --ink: #20251f;
+            --muted: #686e65;
+            --green: #315b43;
+            --green-dark: #234532;
+            --line: #d9ddd3;
+            --card: #fffefa;
+            --lime: #d8edaa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            width: min(1080px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .wordmark {
+            color: var(--green-dark);
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .topbar nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .topbar nav a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .topbar nav a:hover,
+        .topbar nav a:focus-visible {
+            color: var(--green-dark);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.75fr);
+            gap: 64px;
+            align-items: center;
+            padding: 100px 0 92px;
+        }
+
+        .eyebrow {
+            margin: 0 0 18px;
+            color: var(--green);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 680px;
+            margin-bottom: 22px;
+            font-size: clamp(2.9rem, 7vw, 5.5rem);
+            font-weight: 650;
+            letter-spacing: -0.075em;
+            line-height: 0.99;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero-copy {
+            max-width: 570px;
+            margin-bottom: 28px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            border: 1px solid var(--green);
+            border-radius: 5px;
+            background: var(--green);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color 150ms ease, transform 150ms ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            background: var(--green-dark);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--green-dark);
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            background: #e9ece3;
+        }
+
+        .availability-card {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            box-shadow: 0 18px 50px rgb(31 43 32 / 6%);
+        }
+
+        .availability-card .card-label {
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .availability-card dl {
+            margin: 0;
+        }
+
+        .availability-card dl div {
+            padding: 17px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .availability-card dt {
+            color: var(--muted);
+            font-size: 0.83rem;
+        }
+
+        .availability-card dd {
+            margin: 4px 0 0;
+            color: var(--green-dark);
+            font-size: 1.55rem;
+            font-weight: 750;
+            letter-spacing: -0.04em;
+        }
+
+        .availability-card .status {
+            display: flex;
+            gap: 9px;
+            align-items: center;
+            margin: 0 0 8px;
+            color: var(--green-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #78a64e;
+        }
+
+        .section {
+            padding: 78px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 650;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+        }
+
+        .section-intro {
+            max-width: 380px;
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .service-card {
+            min-height: 215px;
+            padding: 25px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            background: var(--card);
+        }
+
+        .service-number {
+            display: inline-grid;
+            width: 35px;
+            height: 35px;
+            place-items: center;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            background: var(--lime);
+            color: var(--green-dark);
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .service-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.12rem;
+            letter-spacing: -0.025em;
+        }
+
+        .service-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .step {
+            padding-top: 17px;
+            border-top: 2px solid var(--green);
+        }
+
+        .step span {
+            display: block;
+            margin-bottom: 14px;
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+        }
+
+        .step p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .contact-panel {
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+            align-items: center;
+            padding: 44px;
+            border-radius: 8px;
+            background: var(--green-dark);
+            color: white;
+        }
+
+        .contact-panel .eyebrow {
+            color: var(--lime);
+        }
+
+        .contact-panel h2 {
+            max-width: 550px;
+            margin-bottom: 12px;
+        }
+
+        .contact-panel p:not(.eyebrow) {
+            max-width: 520px;
+            margin-bottom: 0;
+            color: #d4ded4;
+        }
+
+        .contact-panel .button {
+            flex-shrink: 0;
+            border-color: var(--lime);
+            background: var(--lime);
+            color: var(--green-dark);
+        }
+
+        .contact-panel .button:hover,
+        .contact-panel .button:focus-visible {
+            background: #e5f5c6;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            text-decoration: none;
+        }
+
+        footer a:hover,
+        footer a:focus-visible {
+            color: var(--green-dark);
+        }
+
+        :focus-visible {
+            outline: 3px solid #9ab968;
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 760px) {
+            .page-shell {
+                width: min(100% - 36px, 560px);
+            }
+
+            .topbar {
+                min-height: 70px;
+            }
+
+            .topbar nav {
+                gap: 17px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 70px 0;
+            }
+
+            .availability-card {
+                max-width: 440px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-intro {
+                margin-top: 16px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-height: auto;
+            }
+
+            .service-number {
+                margin-bottom: 20px;
+            }
+
+            .how-it-works {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .contact-panel {
+                display: block;
+                padding: 30px 24px;
+            }
+
+            .contact-panel .button {
+                margin-top: 24px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .topbar nav {
+                gap: 12px;
+            }
+
+            .topbar nav a {
+                font-size: 0.8rem;
+            }
+
+            .wordmark {
+                font-size: 0.78rem;
+            }
+
+            footer {
+                display: block;
+            }
+
+            footer p + p {
+                margin-top: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="wordmark" href="#home">Mobile Developer</a>
+            <nav aria-label="Main navigation">
+                <a href="#services">What I do</a>
+                <a href="#approach">How I work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" id="home" aria-labelledby="hero-title">
+                <div>
+                    <p class="eyebrow">Part-time mobile development</p>
+                    <h1 id="hero-title">Your next mobile feature, <span>built together.</span></h1>
+                    <p class="hero-copy">
+                        Practical development support for Android and React Native projects.
+                        I’m available for focused, hourly work that fits around your team.
+                    </p>
+                    <div class="button-row">
+                        <a class="button" href="#contact">Discuss a project</a>
+                        <a class="button button-secondary" href="#services">Explore services</a>
+                    </div>
+                </div>
+
+                <aside class="availability-card" aria-label="Availability and rate">
+                    <p class="card-label">Engagement details</p>
+                    <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to part-time work</p>
+                    <dl>
+                        <div>
+                            <dt>Daily availability</dt>
+                            <dd>2 hours / day</dd>
+                        </div>
+                        <div>
+                            <dt>Hourly rate</dt>
+                            <dd>₹250 / hour</dd>
+                        </div>
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>Android + React Native</dd>
+                        </div>
+                    </dl>
+                </aside>
+            </section>
+
+            <section class="section" id="services" aria-labelledby="services-title">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Ways I can help</p>
+                        <h2 id="services-title">Useful support, built around your needs.</h2>
+                    </div>
+                    <p class="section-intro">
+                        Bring a feature, a bug, or a small backlog. We can agree on a focused
+                        two-hour block and keep progress visible.
+                    </p>
+                </div>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">01</span>
+                        <h3>Native Android</h3>
+                        <p>Part-time implementation, maintenance, and improvements for Android apps.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">02</span>
+                        <h3>React Native</h3>
+                        <p>Cross-platform feature work and practical support for React Native projects.</p>
+                    </article>
+                    <article class="service-card">
+                        <span class="service-number" aria-hidden="true">03</span>
+                        <h3>Bug fixes &amp; updates</h3>
+                        <p>Investigate issues, make targeted fixes, and help keep existing apps moving.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="approach" aria-labelledby="approach-title">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">A straightforward process</p>
+                        <h2 id="approach-title">Small, clear steps.</h2>
+                    </div>
+                    <p class="section-intro">
+                        A good fit for teams that need reliable extra hands without adding
+                        another full-time role.
+                    </p>
+                </div>
+                <div class="how-it-works">
+                    <article class="step">
+                        <span>STEP 01</span>
+                        <h3>Share the task</h3>
+                        <p>Tell me what you’re building, your platform, and what needs attention.</p>
+                    </article>
+                    <article class="step">
+                        <span>STEP 02</span>
+                        <h3>Agree on a focus</h3>
+                        <p>We align on a manageable task and a two-hour daily schedule.</p>
+                    </article>
+                    <article class="step">
+                        <span>STEP 03</span>
+                        <h3>Make steady progress</h3>
+                        <p>Work is billed hourly at ₹250, with updates as the task moves forward.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="contact" aria-labelledby="contact-title">
+                <div class="contact-panel">
+                    <div>
+                        <p class="eyebrow">Have a part-time opportunity?</p>
+                        <h2 id="contact-title">Let’s talk about what your app needs.</h2>
+                        <p>Share a little about the project, the platform, and the hours you have in mind.</p>
+                    </div>
+                    <a class="button" href="mailto:your.email@example.com?subject=Part-time%20mobile%20development">
+                        Email about a project
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Android &amp; React Native · Part-time · ₹250/hour</p>
+            <p><a href="https://www.linkedin.com/in/your-profile/">Connect on LinkedIn</a></p>
+        </footer>
+    </div>
 </body>
 </html>

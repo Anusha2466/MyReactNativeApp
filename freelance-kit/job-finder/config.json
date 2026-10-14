@@ -1,0 +1,11 @@
+{
+  "skills": ["react native", "react-native", "android", "kotlin", "jetpack compose", "expo"],
+  "partTimeSignals": [
+    "part-time", "part time", "parttime", "part_time",
+    "contract", "contractor", "freelance", "freelancer", "seeking freelancer",
+    "hourly", "per hour", "/hr", "/hour", "hours per week", "hours/week", "hrs/week",
+    "flexible hours", "side project", "short-term", "short term"
+  ],
+  "excludeIfTitleHas": ["backend", "back-end", "senior staff", "principal", "director", "head of", "vp ", "ios only"],
+  "maxAgeDays": 30
+}
